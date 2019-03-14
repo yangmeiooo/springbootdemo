@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.VoteSomeDao">
+
+    <insert id="InsertSome" parameterType="votesome">
+        insert into votesome(vote_name,vote_num,vote_by) values (#{vote_name},#{vote_num},#{vote_by})
+    </insert>
+
+    <select id="selectByid" parameterType="java.lang.Integer" resultType="votesome">
+        select * from votesome where vote_by = #{id}
+    </select>
+    
+    <update id="updateone" parameterType="java.lang.Integer">
+        update votesome set vote_num = vote_num + '1' where id = #{id}
+    </update>
+
+</mapper>
